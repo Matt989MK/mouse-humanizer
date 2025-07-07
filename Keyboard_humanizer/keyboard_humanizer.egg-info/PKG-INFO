@@ -1,6 +1,0 @@
-Metadata-Version: 2.4
-Name: keyboard_humanizer
-Version: 1.0.0
-Requires-Dist: pynput
-Requires-Dist: pyperclip
-Dynamic: requires-dist

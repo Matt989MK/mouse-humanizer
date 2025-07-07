@@ -1,1 +1,0 @@
-# Core typing engine components
