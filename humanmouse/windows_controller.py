@@ -1,6 +1,6 @@
 import random
 import time
-from pynput.mouse import Controller, Button
+from pynput.mouse import Controller as MouseController, Button
 import math
 
 # Helper functions for human-like movement (bezier, jitter, etc.)
@@ -26,11 +26,13 @@ def bezier_curve(start, end, steps=50, intensity=1.0):
     return points
 
 class HumanMouseController:
-    def __init__(self, screen_width=1920, screen_height=1080, tolerance=8):
-        self.mouse = Controller()
+    def __init__(self, screen_width=None, screen_height=None, tolerance=8):
+        if screen_width is None or screen_height is None:
+            raise ValueError("screen_width and screen_height must be provided for HumanMouseController")
         self.screen_width = screen_width
         self.screen_height = screen_height
-        self.tolerance = tolerance  # pixels for correction
+        self.tolerance = tolerance
+        self.mouse = MouseController()
 
     def move(self, pos):
         # 5% chance to overshoot and correct
@@ -76,6 +78,9 @@ class HumanMouseController:
             self.move(pos)
         else:
             self.move(pos)
+
+    def scroll(self, amount):
+        self.mouse.scroll(0, amount)
 
     def _move_human_like(self, pos):
         start = self.mouse.position
