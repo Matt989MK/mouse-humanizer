@@ -92,11 +92,27 @@ class HumanMouseController:
         time.sleep(random.uniform(0.03, 0.09))
 
     def _fidget(self, pos):
-        for _ in range(random.randint(3, 7)):
-            # Much larger, more energetic jitter
-            jitter = (pos[0]+random.randint(-40, 40), pos[1]+random.randint(-40, 40))
-            self._move_human_like(jitter)
-            self._move_human_like(pos)
+        # Randomly choose between micro and macro fidgeting
+        if random.random() < 0.5:
+            print("[Quirk] Micro fidget")
+            for _ in range(random.randint(3, 7)):
+                # Small, tight jitter
+                jitter = (
+                    pos[0] + random.randint(-10, 10),
+                    pos[1] + random.randint(-10, 10)
+                )
+                self._move_human_like(jitter)
+                self._move_human_like(pos)
+        else:
+            print("[Quirk] Macro fidget")
+            for _ in range(random.randint(2, 4)):
+                # Large, spread-out jitter
+                jitter = (
+                    pos[0] + random.randint(-60, 60),
+                    pos[1] + random.randint(-60, 60)
+                )
+                self._move_human_like(jitter)
+                self._move_human_like(pos)
 
     def _adhd_wander(self):
         start = self.mouse.position
