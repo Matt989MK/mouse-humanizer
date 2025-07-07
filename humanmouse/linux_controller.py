@@ -1,7 +1,7 @@
 import random
 import time
 import math
-from MOUSE_MAIN_LINUX.humancursor.system_cursor import SystemCursor
+from .system_cursor import SystemCursor
 
 # Helper for human-like movement (bezier, jitter, etc.)
 def bezier_curve(start, end, steps=50, intensity=1.0):
