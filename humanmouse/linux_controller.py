@@ -31,8 +31,8 @@ class LinuxHumanMouseController:
         self.screen_height = screen_height
         self.tolerance = tolerance
 
-    def move(self, pos):
-        # 5% chance to overshoot and correct
+    def move(self, pos, duration=0.5):
+        # duration is currently ignored, but accepted for API compatibility
         if random.random() < 0.05:
             print("[Quirk] Overshoot and correct")
             overshoot = (
@@ -43,12 +43,10 @@ class LinuxHumanMouseController:
             self._move_human_like(pos)
         else:
             self._move_human_like(pos)
-        # Correction logic: if not close enough, correct
         actual = self.cursor.get_position()
         if math.hypot(actual[0]-pos[0], actual[1]-pos[1]) > self.tolerance:
             print(f"[Correction] Landed at {actual}, correcting to {pos}")
             self._move_human_like(pos)
-        # 10% chance to fidget after move
         if random.random() < 0.10:
             print("[Quirk] Fidget after move")
             self._fidget(pos)
@@ -101,4 +99,8 @@ class LinuxHumanMouseController:
             )
             self._move_human_like(wander)
             time.sleep(random.uniform(0.02, 0.09))
-        self._move_human_like(start) 
+        self._move_human_like(start)
+
+    def scroll(self, amount):
+        print(f"[Stub] Scrolling {amount}")
+        pass 
