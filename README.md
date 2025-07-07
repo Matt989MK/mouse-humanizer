@@ -45,6 +45,18 @@ pytest tests/test_humanmouse.py
 
 ---
 
+## 🧪 Advanced Testing
+
+To run the full coverage advanced mouse test (exercises all behaviors, including ADHD wander, fidget, overshoot, rage click, etc.):
+
+```bash
+python tests/test_mouse_advanced.py
+```
+
+This will move, click, hover, scroll, and directly trigger all advanced behaviors for robust testing.
+
+---
+
 ## 🛠️ API Reference
 
 ### `HumanMouse`
