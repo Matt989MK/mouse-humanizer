@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="mousehumanizer",
-    version="0.1.1",
+    version="0.1.2",
     packages=["mousehumanizer"],
     install_requires=[
         "pynput"

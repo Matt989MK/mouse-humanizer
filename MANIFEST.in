@@ -1,1 +1,2 @@
-recursive-include humanmouse *
+recursive-include mousehumanizer/utilities *
+recursive-include mousehumanizer *
