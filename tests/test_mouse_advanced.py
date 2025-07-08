@@ -1,6 +1,6 @@
 import random
 import time
-from humanmouse import HumanMouse
+from mousehumanizer import HumanMouse
 
 # Robust cross-platform screen size detection (as before)
 screen_width = screen_height = None

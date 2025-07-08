@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+mousehumanizer/__init__.py
+mousehumanizer/linux_controller.py
+mousehumanizer/system_cursor.py
+mousehumanizer/windows_controller.py
+mousehumanizer.egg-info/PKG-INFO
+mousehumanizer.egg-info/SOURCES.txt
+mousehumanizer.egg-info/dependency_links.txt
+mousehumanizer.egg-info/requires.txt
+mousehumanizer.egg-info/top_level.txt
+tests/test_humanmouse.py
+tests/test_mouse_advanced.py

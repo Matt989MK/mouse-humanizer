@@ -1,5 +1,5 @@
 import pytest
-from humanmouse import HumanMouse
+from mousehumanizer import HumanMouse
 
 def test_mouse_move_and_click():
     mouse = HumanMouse()
